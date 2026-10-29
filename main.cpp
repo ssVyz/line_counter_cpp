@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "cli.hpp"
+#include "analysis.hpp"
 
 
 int main(int argc, char *argv[]) {
@@ -16,22 +17,13 @@ int main(int argc, char *argv[]) {
         args.push_back(s);
     }
 
-    //run load_args
+    // run load_args
     app.load_args(args);
+
+    // run analysis
 
     app.dump_contents();
 
-
-    /*
-    std::cout << "Number of args is " << argc  << "\n";
-
-    for (int i = 0; i < argc; i++) {
-
-        std::cout << argv[i] << "\n";
-
-    }
-
-    */
 
     return 0;
 }

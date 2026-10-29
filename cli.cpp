@@ -12,12 +12,17 @@ void App::load_args(std::vector<std::string> args) {
     for (std::string s : args) {
         if (s == "-v" || s == "--verbose") {
             this->verbose = true;
+        } else {
+            this->file_ext = s;
         }
     }
-
 }
 
 void App::dump_contents() {
     std::cout << "Verbose flag set: " << this->verbose << "\n";
     std::cout << "Working directory: " << this->cwd << "\n";
+    if (this->file_ext == "missing") {
+        return;
+    } 
+    std::cout << "Recognized file extension: " << this->file_ext << "\n";
 }

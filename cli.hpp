@@ -6,6 +6,8 @@
 
 struct App {
     bool verbose = false;
+    std::string file_ext = "missing";
+
     std::filesystem::path cwd = std::filesystem::current_path();
 
     void load_args(std::vector<std::string> args);
