@@ -13,7 +13,11 @@ void App::load_args(std::vector<std::string> args) {
         if (s == "-v" || s == "--verbose") {
             this->verbose = true;
         } else {
-            this->file_ext = s;
+            if (s[0] != ('.')) {
+                this->file_ext = "." + s;
+            } else {
+                this->file_ext = s;
+            }
         }
     }
 }
@@ -25,4 +29,11 @@ void App::dump_contents() {
         return;
     } 
     std::cout << "Recognized file extension: " << this->file_ext << "\n";
+}
+
+void dump_path_vec(std::vector<std::filesystem::path> vec) {
+    std::cout << "Dumping found files:\n";
+    for (std::filesystem::path item : vec) {
+        std::cout << item.string() << "\n";
+    }
 }

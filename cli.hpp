@@ -13,3 +13,5 @@ struct App {
     void load_args(std::vector<std::string> args);
     void dump_contents();
 };
+
+void dump_path_vec(std::vector<std::filesystem::path> vec);

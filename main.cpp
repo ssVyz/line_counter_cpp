@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <filesystem>
 
 #include "cli.hpp"
 #include "analysis.hpp"
@@ -23,6 +24,10 @@ int main(int argc, char *argv[]) {
     // run analysis
 
     app.dump_contents();
+
+    auto files = find_files(std::filesystem::current_path(), app.file_ext, app.verbose);
+
+    dump_path_vec(files);
 
 
     return 0;
