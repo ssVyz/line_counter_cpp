@@ -27,6 +27,7 @@ std::vector<std::filesystem::path> find_files(std::filesystem::path cur_dir, std
     for (const auto& item : std::filesystem::directory_iterator(cur_dir)) {
         // case its a folder
         if (std::filesystem::is_directory(item)) {
+            //if (item.path().string().find(".git") == std::string::npos) {continue;}
             if (verbose) {std::cout << "Going to directory: " << item.path() << "\n";}
             std::vector<std::filesystem::path> new_vec = find_files(item, file_ext, verbose);
             result_vec.insert(result_vec.end(), new_vec.begin(), new_vec.end());
